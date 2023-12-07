@@ -1,0 +1,88 @@
+GET http://localhost:8080/v1/categories HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+###Authorization: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMCIsImlhdCI6MTcwMTMxNTgzNSwic3ViIjoidmlsbGFmcmFuY29kZXNpZGVyaW8zQGdtYWlsLmNvbSIsImlzcyI6Ik1haW4iLCJleHAiOjE3MDE5MjA2MzV9.t4bEiLnhDJw951fKUg8DgAZ9Uivbb_YBMKUv-FdVhyE
+
+GET http://localhost:8080/v1/category/2 HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+###Authorization: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMCIsImlhdCI6MTcwMTMxNTgzNSwic3ViIjoidmlsbGFmcmFuY29kZXNpZGVyaW8zQGdtYWlsLmNvbSIsImlzcyI6Ik1haW4iLCJleHAiOjE3MDE5MjA2MzV9.t4bEiLnhDJw951fKUg8DgAZ9Uivbb_YBMKUv-FdVhyE
+  
+
+###
+POST http://localhost:8080/v1/category HTTP/1.1
+content-type: application/json 
+Accept: application/json'
+
+{
+        "name": "The Wasp",
+        "description": "Libro de ciencia ficción"
+}
+
+
+###
+PUT http://localhost:8080/v1/category/2 HTTP/1.1
+content-type: application/json 
+Accept: application/json'
+
+{
+        "name": "Novel",
+        "description": "Libro de novela"
+}
+
+###
+DELETE http://localhost:8080/v1/category/6 HTTP/1.1
+content-type: application/json 
+Accept: application/json'
+
+
+
+###BOOKS
+
+GET http://localhost:8080/v1/books HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+###Authorization: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMCIsImlhdCI6MTcwMTMxNTgzNSwic3ViIjoidmlsbGFmcmFuY29kZXNpZGVyaW8zQGdtYWlsLmNvbSIsImlzcyI6Ik1haW4iLCJleHAiOjE3MDE5MjA2MzV9.t4bEiLnhDJw951fKUg8DgAZ9Uivbb_YBMKUv-FdVhyE
+
+GET http://localhost:8080/v1/book/5 HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+###Authorization: eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMCIsImlhdCI6MTcwMTMxNTgzNSwic3ViIjoidmlsbGFmcmFuY29kZXNpZGVyaW8zQGdtYWlsLmNvbSIsImlzcyI6Ik1haW4iLCJleHAiOjE3MDE5MjA2MzV9.t4bEiLnhDJw951fKUg8DgAZ9Uivbb_YBMKUv-FdVhyE
+  
+
+###
+POST http://localhost:8080/v1/book HTTP/1.1
+content-type: application/json 
+Accept: application/json'
+
+{
+        "title": "La máquina del tiempo",
+        "description": "El retrato de una sociedad futura dividida entre gente hipersensible y mostrencos monstruosos es fascinante, y términos como 'Morlock' han pasado al acervo popular.",
+        "author": "Herbert George Wells",
+        "category": {
+                     "id":3,
+                    "name": "SciFi",
+                  "description": "Libro de ciencia ficción"
+        }
+}
+
+
+###
+PUT http://localhost:8080/v1/book/2 HTTP/1.1
+content-type: application/json 
+Accept: application/json'
+
+{
+        "name": "Novel",
+        "description": "Libro de novela"
+}
+
+###
+DELETE http://localhost:8080/v1/book/6 HTTP/1.1
+content-type: application/json 
+Accept: application/json'
+

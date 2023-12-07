@@ -30,7 +30,7 @@ public class BookServiceImpl implements IBookService{
             List<Book> books = (List<Book>) iBookDAO.findAll();
             response.getBookResponse().setBookList(books);
             if (books.isEmpty()){
-                response.setMetadata("Response OK","00","No books to list");
+                response.setMetadata("Response OK","-1","No books to list");
                 return new ResponseEntity<BookResponseREST>(response, HttpStatus.NOT_FOUND);
             }
             else {
@@ -59,7 +59,7 @@ public class BookServiceImpl implements IBookService{
                 response.setMetadata("Response OK","01","success");
             }else {
                 log.error("Error searching book by ID");
-                response.setMetadata("Response OK","01","Book Not Found");
+                response.setMetadata("Response ERROR","-1","Book Not Found");
                 return new ResponseEntity<BookResponseREST>(response, HttpStatus.NOT_FOUND);
             }
 
@@ -84,9 +84,9 @@ public class BookServiceImpl implements IBookService{
             if (savedBook!=null){
                 bookList.add(savedBook);
                 response.getBookResponse().setBookList(bookList);
-                response.setMetadata("Response OK","00","Book Saved");
+                response.setMetadata("Response OK","01","Book Saved");
             }else {
-                response.setMetadata("Response OK","-1","Book Not Saved");
+                response.setMetadata("Response ERROR","-1","Book Not Saved");
                 return new ResponseEntity<BookResponseREST>(response, HttpStatus.NOT_FOUND);
             }
         }catch (Exception e){
@@ -115,10 +115,10 @@ public class BookServiceImpl implements IBookService{
                 if (bookUpdated!=null){
                     bookList.add(bookToUpdate.get());
                     response.getBookResponse().setBookList(bookList);
-                    response.setMetadata("Response OK","00","Book Updated");
+                    response.setMetadata("Response OK","01","Book Updated");
                 }
                 else {
-                    response.setMetadata("Response ERROR", "-3", "Book Not Saved");
+                    response.setMetadata("Response ERROR", "-1", "Book Not Saved");
                     return new ResponseEntity<BookResponseREST>(response, HttpStatus.BAD_REQUEST);
                 }
             }else {
@@ -141,7 +141,7 @@ public class BookServiceImpl implements IBookService{
 
         try {
             iBookDAO.deleteById(id);
-            response.setMetadata("Response OK", "00", "Book Deleted");
+            response.setMetadata("Response OK", "01", "Book Deleted");
         }
         catch (Exception e){
             log.error("Error Deleting Book "+e);
