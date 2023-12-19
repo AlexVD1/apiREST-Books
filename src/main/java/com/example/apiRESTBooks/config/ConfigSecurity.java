@@ -47,10 +47,8 @@ public class ConfigSecurity {
                    .requestMatchers(HttpMethod.POST,"/v1/category").hasRole("Admin")
                    .requestMatchers(HttpMethod.PUT,"/v1/category/**").hasRole("Admin")
                    .requestMatchers(HttpMethod.DELETE,"/v1/category/**").hasRole("Admin")
-                   //STARTS TOKEN CONFIGURATION
-                   .requestMatchers(HttpMethod.POST,"/v1/authenticate").permitAll()
-                   //START SPRINGDOC-Swagger CONFIG
-                   .requestMatchers("/v3/api-docs/**","/swagger-ui/**","/swagger-ui.html").permitAll();
+                   //STARTS TOKEN CONFIGURATION and SPRINGDOC-Swagger CONFIG
+                   .requestMatchers("/v1/authenticate","/v3/api-docs/**","/swagger-ui/**","/swagger-ui.html").permitAll();
                    
 
         })
